@@ -197,6 +197,9 @@ em{font-style:normal;color:var(--bone);position:relative}
 /* ░░ SECTION SHELL ░░ */
 .section{max-width:var(--maxw);margin:0 auto;padding:clamp(90px,12vw,170px) var(--pad)}
 .section__head{margin-bottom:64px;max-width:760px}
+.section__head--row{max-width:none;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.journal__all{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);white-space:nowrap;padding-bottom:6px;transition:color .3s}
+.journal__all:hover{color:var(--bone)}
 .kicker{display:block;margin-bottom:22px}
 .section__lede{margin-top:26px;font-size:1.15rem;color:var(--bone-dim);max-width:54ch;line-height:1.55}
 

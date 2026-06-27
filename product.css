@@ -1,0 +1,76 @@
+/* ░░░░░ STONE — product page styles ░░░░░ */
+/* loaded after style.css; relies on its tokens */
+
+/* hero */
+.p-hero{
+  max-width:var(--maxw);margin:0 auto;
+  padding:150px var(--pad) 60px;
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center;
+}
+.p-hero__title{font-size:clamp(2.6rem,7vw,5rem);line-height:.98;font-weight:500;letter-spacing:-.04em;margin:22px 0 24px}
+.p-hero__lede{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--bone-dim);line-height:1.5;max-width:34ch}
+.p-hero__stage{width:100%;max-width:560px;justify-self:center}
+
+/* stat strip */
+.p-stats{
+  max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+}
+.p-stat{background:var(--ink);padding:clamp(22px,3vw,34px)}
+.p-stat__num{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:600;letter-spacing:-.03em;line-height:1}
+.p-stat__label{display:block;margin-top:10px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+
+/* alternating split rows */
+.p-split{
+  max-width:var(--maxw);margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center;
+  padding:clamp(60px,9vw,120px) var(--pad);
+}
+.p-split + .p-split{border-top:1px solid var(--line)}
+.p-split:nth-of-type(even) .p-split__media{order:2}
+.p-split__media .ph{aspect-ratio:4/3;width:100%;border-radius:20px}
+.p-split__body h2{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:500;letter-spacing:-.03em;line-height:1.04;margin:18px 0 18px}
+.p-split__body p{color:var(--bone-dim);font-size:1.12rem;line-height:1.6;max-width:46ch}
+.p-split__body p + p{margin-top:1em}
+.p-note{
+  margin-top:24px;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--steel);display:flex;gap:10px;align-items:center;
+}
+.p-note::before{content:"";width:22px;height:1px;background:var(--steel)}
+
+/* finishes */
+.p-finish{
+  max-width:var(--maxw);margin:0 auto;padding:clamp(60px,8vw,110px) var(--pad);
+  border-top:1px solid var(--line);
+}
+.p-finish__grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:46px}
+.p-finish__card{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--ink-2)}
+.p-finish__card .ph{aspect-ratio:16/10;border-radius:0;border:none;border-bottom:1px solid var(--line)}
+.p-finish__card--dark .ph{background:radial-gradient(120% 90% at 35% 25%,rgba(80,84,90,.16),transparent 60%),linear-gradient(160deg,#0c0c0d,#060607)}
+.p-finish__txt{padding:clamp(22px,3vw,34px)}
+.p-finish__txt h3{font-size:1.5rem;font-weight:500;letter-spacing:-.02em;margin-bottom:8px}
+.p-finish__txt span{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:14px}
+.p-finish__txt p{color:var(--bone-dim);font-size:1rem;line-height:1.55}
+
+/* compact spec strip */
+.p-spec{max-width:var(--maxw);margin:0 auto;padding:clamp(60px,8vw,110px) var(--pad);border-top:1px solid var(--line)}
+.p-spec__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 60px;margin-top:40px}
+.p-spec__row{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.p-spec__row dt{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.p-spec__row dd{font-size:1.1rem;font-weight:500}
+
+/* cross-link + cta */
+.p-cta{max-width:var(--maxw);margin:0 auto;padding:clamp(70px,10vw,130px) var(--pad);text-align:center;border-top:1px solid var(--line)}
+.p-cta h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:500;letter-spacing:-.03em;margin-bottom:14px}
+.p-cta p{color:var(--bone-dim);margin-bottom:34px;font-size:1.1rem}
+.p-cross{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+@media(max-width:860px){
+  .p-hero{grid-template-columns:1fr;padding-top:120px}
+  .p-hero__stage{max-width:420px;margin-top:20px}
+  .p-stats{grid-template-columns:repeat(2,1fr)}
+  .p-split{grid-template-columns:1fr;gap:24px}
+  .p-split:nth-of-type(even) .p-split__media{order:0}
+  .p-finish__grid,.p-spec__grid{grid-template-columns:1fr}
+}

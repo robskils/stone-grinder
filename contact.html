@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - STONE</title>
+  <meta name="description" content="Talk to STONE. Order support, wholesale and stockist enquiries, press, and everything else. We reply within two working days.">
+  <link rel="canonical" href="https://stonegrinder.co/contact">
+  <link rel="icon" type="image/png" href="assets/favicon-256.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact - STONE">
+  <meta property="og:description" content="Order support, wholesale enquiries, press, and everything else.">
+  <meta property="og:url" content="https://stonegrinder.co/contact">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="contact.css?v=1">
+</head>
+<body>
+
+  <header class="nav is-stuck" id="nav">
+    <a href="index.html" class="nav__brand" aria-label="STONE home">
+      <img class="nav__logo" src="assets/stone-wordmark-white.png" alt="STONE" width="1134" height="294">
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="the-grinder">The Grinder</a>
+      <a href="the-vault">The Vault</a>
+      <a href="index.html#spec">Specification</a>
+      <a href="journal/">Journal</a>
+      <a href="contact">Contact</a>
+    </nav>
+    <a href="index.html#acquire" class="nav__cta">Acquire <span>€180</span></a>
+  </header>
+
+  <main>
+    <section class="c-wrap">
+      <div class="c-intro">
+        <span class="kicker">Contact</span>
+        <h1 class="c-intro__title">Talk to us.</h1>
+        <p class="c-intro__lede">Order support, a wholesale or stockist enquiry, press, or simply a question about the object. Whatever it is, we read every message and reply within two working days.</p>
+
+        <div class="c-direct">
+          <div class="c-direct__item">
+            <span>Email</span>
+            <a href="mailto:hello@stonegrinder.co">hello@stonegrinder.co</a>
+          </div>
+          <div class="c-direct__item">
+            <span>Wholesale &amp; stockists</span>
+            <p>Use the form and choose <em>Wholesale</em>. We supply select retailers worldwide.</p>
+          </div>
+          <div class="c-direct__item">
+            <span>Response time</span>
+            <p>Within two working days.</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="form" id="contactForm" action="/api/contact" method="post" novalidate>
+        <div class="form__row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@email.com">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic">
+            <option>General enquiry</option>
+            <option>Order support</option>
+            <option>Wholesale / stockist</option>
+            <option>Press</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
+        </div>
+
+        <!-- honeypot: hidden from people, tempting to bots -->
+        <div class="field--hp" aria-hidden="true">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form__actions">
+          <button type="submit" class="btn btn--solid" id="contactSubmit">Send message</button>
+          <p class="form__note">We never share your details.</p>
+        </div>
+        <p class="form__status" id="contactStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <a href="index.html" class="footer__brand" aria-label="STONE">
+        <img class="footer__logo" src="assets/stone-wordmark-white.png" alt="STONE" width="1134" height="294">
+      </a>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="the-grinder">The Grinder</a>
+        <a href="the-vault">The Vault</a>
+        <a href="journal/">Journal</a>
+        <a href="contact">Contact</a>
+        <a href="index.html#acquire">Acquire</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 STONE. A design object for the ritual.</p>
+      <p>Forged in surgical steel. Shipped worldwide. 21+ only.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('contactForm');
+      var btn = document.getElementById('contactSubmit');
+      var status = document.getElementById('contactStatus');
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        status.className = 'form__status';
+        status.textContent = '';
+        var data = Object.fromEntries(new FormData(form));
+        if (!data.name.trim() || !data.email.trim() || !data.message.trim()) {
+          status.className = 'form__status is-error';
+          status.textContent = 'Please fill in your name, email, and message.';
+          return;
+        }
+        var original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        try {
+          var res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+          var out = await res.json().catch(function () { return {}; });
+          if (res.ok && out.ok) {
+            form.reset();
+            status.className = 'form__status is-ok';
+            status.textContent = 'Thank you. Your message is on its way — we will be in touch shortly.';
+          } else if (out.error === 'email_not_configured') {
+            status.className = 'form__status is-error';
+            status.textContent = 'The contact form is not live yet. Please email hello@stonegrinder.co in the meantime.';
+          } else {
+            throw new Error(out.error || 'failed');
+          }
+        } catch (err) {
+          status.className = 'form__status is-error';
+          status.textContent = 'Something went wrong. Please email hello@stonegrinder.co directly.';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = original;
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

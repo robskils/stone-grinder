@@ -44,7 +44,7 @@
         <div class="c-direct">
           <div class="c-direct__item">
             <span>Email</span>
-            <a href="mailto:hello@stonegrinder.co">hello@stonegrinder.co</a>
+            <a href="mailto:contact@stonegrinder.co">contact@stonegrinder.co</a>
           </div>
           <div class="c-direct__item">
             <span>Wholesale &amp; stockists</span>
@@ -149,13 +149,13 @@
             status.textContent = 'Thank you. Your message is on its way — we will be in touch shortly.';
           } else if (out.error === 'email_not_configured') {
             status.className = 'form__status is-error';
-            status.textContent = 'The contact form is not live yet. Please email hello@stonegrinder.co in the meantime.';
+            status.textContent = 'The contact form is not live yet. Please email contact@stonegrinder.co in the meantime.';
           } else {
             throw new Error(out.error || 'failed');
           }
         } catch (err) {
           status.className = 'form__status is-error';
-          status.textContent = 'Something went wrong. Please email hello@stonegrinder.co directly.';
+          status.textContent = 'Something went wrong. Please email contact@stonegrinder.co directly.';
         } finally {
           btn.disabled = false;
           btn.textContent = original;

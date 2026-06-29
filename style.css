@@ -115,6 +115,11 @@ em{font-style:normal;color:var(--bone);position:relative}
   background:radial-gradient(circle at 50% 42%,rgba(140,144,151,.30),rgba(140,144,151,.06) 42%,transparent 66%);
   filter:blur(6px);
 }
+/* ░░ REAL PHOTOGRAPHY ░░ */
+.stage__photo{position:relative;z-index:1;width:100%;height:auto;border-radius:24px;display:block;box-shadow:0 40px 80px rgba(0,0,0,.55)}
+.hero__stage--photo{aspect-ratio:auto}
+.hero__stage--photo .stage__halo{background:radial-gradient(circle at 50% 45%,rgba(140,144,151,.22),transparent 62%)}
+
 /* ░░ PHOTO PLACEHOLDER — swap .ph for <img> when photography lands ░░ */
 .ph{
   position:relative;z-index:1;width:84%;aspect-ratio:1/1;border-radius:24px;

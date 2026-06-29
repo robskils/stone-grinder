@@ -32,6 +32,9 @@ export async function onRequest(context) {
     return gate(true); // wrong password
   }
 
+  // let the gate's own logo through so the landing page can show it
+  if (request.method === 'GET' && url.pathname === '/assets/stone-device-white.svg') return next();
+
   // everything else → the gate page
   return gate(false);
 }
@@ -42,7 +45,6 @@ async function sha256(str) {
 }
 
 function gate(error) {
-  const mark = `<svg viewBox="0 0 100 100" fill="#f4f1ec" fill-rule="evenodd" aria-hidden="true"><path d="M50,3 C69,3 59.35,29.65 64.85,35.15 C70.35,40.65 97,31 97,50 C97,69 70.35,59.35 64.85,64.85 C59.35,70.35 69,97 50,97 C31,97 40.65,70.35 35.15,64.85 C29.65,59.35 3,69 3,50 C3,31 29.65,40.65 35.15,35.15 C40.65,29.65 31,3 50,3 Z M50,34 a16,16 0 1,0 0.01,0 Z"/></svg>`;
   const html = `<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
@@ -70,7 +72,7 @@ button:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(0,0,0,.5)}
 </style></head>
 <body>
 <main class="gate">
-  <div class="gate__mark">${mark}</div>
+  <img class="gate__mark" src="/assets/stone-device-white.svg" alt="STONE" width="60" height="60">
   <div class="gate__word">STONE</div>
   <p class="gate__sub">Private preview</p>
   <form method="POST" action="/__gate" autocomplete="off">

@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
   <link rel="stylesheet" href="contact.css?v=1">
 </head>
 <body>
@@ -146,7 +146,7 @@
           if (res.ok && out.ok) {
             form.reset();
             status.className = 'form__status is-ok';
-            status.textContent = 'Thank you. Your message is on its way — we will be in touch shortly.';
+            status.textContent = 'Thank you. Your message is on its way - we will be in touch shortly.';
           } else if (out.error === 'email_not_configured') {
             status.className = 'form__status is-error';
             status.textContent = 'The contact form is not live yet. Please email contact@stonegrinder.co in the meantime.';

@@ -27,6 +27,7 @@ export async function onRequestPost({ request, env }) {
     form.set('success_url', `${origin}/?status=success&session_id={CHECKOUT_SESSION_ID}`);
     form.set('cancel_url', `${origin}/#acquire`);
     form.set('automatic_tax[enabled]', 'true');
+    form.set('allow_promotion_codes', 'true');
     form.set('billing_address_collection', 'required');
     form.set('shipping_address_collection[allowed_countries][0]', 'PT');
     form.set('shipping_address_collection[allowed_countries][1]', 'GB');

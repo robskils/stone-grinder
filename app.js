@@ -40,7 +40,10 @@ if (finishSection) {
       finishSection.querySelectorAll('.finish__btn').forEach((b) => b.classList.toggle('is-active', b === btn));
       titleEl.textContent = FINISHES[set].title;
       descEl.textContent = FINISHES[set].desc;
-      if (objEl) objEl.dataset.label = FINISHES[set].title;
+      if (objEl) {
+        objEl.dataset.label = FINISHES[set].title;
+        objEl.style.backgroundImage = "url('assets/img/finish-" + (set === 'stealth' ? 'stealth' : 'mirror') + ".jpg')";
+      }
     });
   });
 }

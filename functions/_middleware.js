@@ -80,7 +80,7 @@ button:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(0,0,0,.5)}
     <button type="submit">Enter</button>
   </form>
   <p class="gate__err">${error ? 'Incorrect password. Try again.' : ''}</p>
-  <p class="gate__foot">© 2026 STONE · The Finest Herb Grinder</p>
+  <p class="gate__foot">© 2026 STONE · Finest Herb Grinder</p>
 </main>
 </body></html>`;
   return new Response(html, {

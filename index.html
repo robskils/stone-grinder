@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -235,7 +235,15 @@
                 <button class="chip" data-buy-finish="stealth">Matte Stealth</button>
               </div>
             </div>
-            <div class="buy__price"><span class="buy__amt">€119</span><span class="buy__was">€149.95</span><span class="buy__vat">founding price · incl. VAT · ships worldwide</span></div>
+            <div class="buy__qty">
+              <span>Quantity</span>
+              <div class="qty">
+                <button class="qty__btn" type="button" data-qty="-1" aria-label="Decrease quantity">−</button>
+                <input class="qty__input" id="buyQty" type="number" min="1" max="400" value="1" inputmode="numeric" aria-label="Quantity">
+                <button class="qty__btn" type="button" data-qty="1" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+            <div class="buy__price"><span class="buy__amt" id="buyAmt">€119</span><span class="buy__was">€149.95</span><span class="buy__vat">founding price · €119 each · incl. VAT</span></div>
             <button class="btn btn--solid btn--block" id="checkout" data-finish="mirror">Reserve your number</button>
             <p class="buy__note">A pre-subscription, secured via Stripe. Your number is held the moment you join. First batch ships once the founding run is cast.</p>
           </div>
@@ -293,6 +301,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>

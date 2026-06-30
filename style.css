@@ -239,6 +239,15 @@ em{font-style:normal;color:var(--bone);position:relative}
 .founders__fine{margin-top:24px;font-size:.85rem;color:var(--steel);max-width:640px;line-height:1.6}
 .hero__founders{margin-top:22px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--bone-dim);max-width:430px;line-height:1.7}
 .buy__was{font-size:1.05rem;color:var(--steel);text-decoration:line-through;margin-left:10px}
+/* quantity stepper (lives on the light bone acquire card) */
+.buy__qty{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:20px 0}
+.buy__qty>span{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-dk)}
+.qty{display:inline-flex;align-items:center;border:1px solid rgba(10,10,10,.2);border-radius:100px;overflow:hidden}
+.qty__btn{width:42px;height:42px;background:none;border:none;color:var(--ink);font-size:1.3rem;line-height:1;cursor:pointer;transition:.2s var(--ease);display:grid;place-items:center}
+.qty__btn:hover{background:rgba(10,10,10,.06)}
+.qty__input{width:56px;height:42px;background:none;border:none;border-left:1px solid rgba(10,10,10,.2);border-right:1px solid rgba(10,10,10,.2);color:var(--ink);text-align:center;font-family:var(--font);font-size:1rem;font-weight:500;-moz-appearance:textfield}
+.qty__input::-webkit-outer-spin-button,.qty__input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.qty__input:focus{outline:none}
 @media(max-width:720px){.founders__grid{grid-template-columns:1fr}.founders__cta{flex-direction:column;align-items:flex-start}}
 
 /* ░░ OBJECT ░░ */

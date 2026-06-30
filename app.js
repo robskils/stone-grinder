@@ -57,10 +57,31 @@ document.querySelectorAll('[data-buy-finish]').forEach((chip) => {
   });
 });
 
+/* quantity stepper — any amount, 1 and up */
+const UNIT = 119;
+const qtyInput = document.getElementById('buyQty');
+const buyAmt = document.getElementById('buyAmt');
+function clampQty(n) { n = parseInt(n, 10); if (!n || n < 1) n = 1; if (n > 400) n = 400; return n; }
+function syncQty() {
+  if (!qtyInput) return;
+  const n = clampQty(qtyInput.value);
+  qtyInput.value = n;
+  if (buyAmt) buyAmt.textContent = '€' + (UNIT * n).toLocaleString('en-IE');
+}
+if (qtyInput) {
+  qtyInput.addEventListener('input', syncQty);
+  qtyInput.addEventListener('change', syncQty);
+  document.querySelectorAll('[data-qty]').forEach((b) => {
+    b.addEventListener('click', () => { qtyInput.value = clampQty(qtyInput.value) + parseInt(b.dataset.qty, 10); syncQty(); });
+  });
+  syncQty();
+}
+
 /* checkout → Stripe */
 if (checkoutBtn) {
   checkoutBtn.addEventListener('click', async () => {
     const finish = checkoutBtn.dataset.finish || 'mirror';
+    const qty = qtyInput ? clampQty(qtyInput.value) : 1;
     const original = checkoutBtn.textContent;
     checkoutBtn.disabled = true;
     checkoutBtn.textContent = 'Opening secure checkout…';
@@ -68,7 +89,7 @@ if (checkoutBtn) {
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ finish, qty: 1 }),
+        body: JSON.stringify({ finish, qty }),
       });
       if (!res.ok) throw new Error('checkout unavailable');
       const data = await res.json();

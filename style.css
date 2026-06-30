@@ -219,6 +219,7 @@ em{font-style:normal;color:var(--bone);position:relative}
   line-height:1.32;font-weight:400;letter-spacing:-.02em;color:var(--steel);
 }
 .manifesto__text em{color:var(--bone)}
+.manifesto__text--punch{margin-top:.85em;padding-top:.85em;border-top:1px solid rgba(244,241,236,.1)}
 
 /* ░░ OBJECT ░░ */
 .section--object .stage--lg{

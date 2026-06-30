@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
           <a href="#founders" class="btn btn--solid">Reserve yours - €119</a>
           <a href="#object" class="btn btn--ghost">Examine the object</a>
         </div>
-        <p class="hero__founders reveal">The Founding Batch is open - 400 individually numbered pieces, at the founding price.</p>
+        <p class="hero__founders reveal">The Founders Club is open - 400 individually numbered pieces, at the founders price.</p>
       </div>
 
       <figure class="stage hero__stage hero__stage--photo reveal">
@@ -193,32 +193,35 @@
     <section class="founders" id="founders">
       <div class="founders__inner">
         <div class="founders__head">
-          <span class="kicker">The Founding Batch · 400 only</span>
+          <span class="kicker">The Founders Club · 400 only</span>
           <h2 class="founders__title reveal">The first four hundred.</h2>
-          <p class="founders__lede reveal">Before STONE is cast at scale, just 400 pieces will be made as the Founding Batch. Pre-subscribe now and you do not simply get yours first - you help bring the object into the world, and share in what it becomes.</p>
+          <p class="founders__lede reveal">Before STONE is made at scale, just 400 pieces will be cast - and the people who claim them become the Founders Club. Reserve yours now and you do not simply get the grinder first; you take your place at the very start of the brand.</p>
         </div>
         <div class="founders__grid">
-          <article class="founders__perk reveal"><span class="founders__no">01</span><h3>One of 400, numbered</h3><p>Every Founding Batch grinder is individually cast and numbered, 1 to 400. Yours alone, and never made again.</p></article>
-          <article class="founders__perk reveal"><span class="founders__no">02</span><h3>The STONE Members Club</h3><p>Founders are inducted for life - the inner circle, with first access to every edition, finish and release that follows.</p></article>
-          <article class="founders__perk reveal"><span class="founders__no">03</span><h3>First refusal on shares</h3><p>Should STONE ever raise capital, members are offered first right of refusal, before any outside investor.</p></article>
-          <article class="founders__perk reveal"><span class="founders__no">04</span><h3>The founding price</h3><p>€119, not €149.95. The lowest STONE will ever be sold, held only for the 400 who were here at the start.</p></article>
+          <article class="founders__perk reveal"><span class="founders__no">01</span><h3>One of 400, numbered</h3><p>Every Founders Club grinder is individually cast and numbered, 1 to 400. Yours alone, and never made again.</p></article>
+          <article class="founders__perk reveal"><span class="founders__no">02</span><h3>A unique Club card</h3><p>A numbered Founders Club card to match your piece - your standing proof that you were here at the very start.</p></article>
+          <article class="founders__perk reveal"><span class="founders__no">03</span><h3>Guestlist to every event</h3><p>A permanent place on the list for STONE launches, parties and gatherings, wherever they happen.</p></article>
+          <article class="founders__perk reveal"><span class="founders__no">04</span><h3>First access, always</h3><p>First to every new edition, finish and release - before any of it reaches the public.</p></article>
+          <article class="founders__perk reveal"><span class="founders__no">05</span><h3>A founder for life</h3><p>As STONE grows, you grow with it. Founders stay the inner circle, and we never forget who was here first.</p></article>
+          <article class="founders__perk reveal"><span class="founders__no">06</span><h3>The founders price</h3><p>€119, not €149.95. The lowest STONE will ever be sold, held only for the first 400.</p></article>
         </div>
         <div class="founders__cta reveal">
           <div class="founders__price">
             <span class="founders__amt">€119</span>
             <span class="founders__was">€149.95</span>
-            <span class="founders__slots">400 slots · numbered 1 to 400</span>
+            <span class="founders__save">Save €30.95</span>
+            <span class="founders__slots">400 places · numbered 1 to 400 · standard price €149.95 after launch</span>
           </div>
           <a href="#acquire" class="btn btn--solid">Reserve your number</a>
         </div>
-        <p class="founders__fine">A pre-subscription, not stock on a shelf. Your number is held the moment you join; the Founding Batch ships once the first run is cast.</p>
+        <p class="founders__fine">A pre-subscription, not stock on a shelf. Your place is held the moment you join; your grinder ships once the first run is cast.</p>
       </div>
     </section>
 
     <!-- ░░ ACQUIRE ░░ -->
     <section class="acquire" id="acquire">
       <div class="acquire__inner">
-        <span class="kicker">Reserve · Founding Batch</span>
+        <span class="kicker">Reserve · Founders Club</span>
         <h2 class="acquire__title reveal">Claim your number.</h2>
         <div class="buy reveal">
           <div class="buy__media">
@@ -226,8 +229,8 @@
             <div class="ph ph--light has-img" style="background-image:url('assets/img/cad-buy.jpg?v=2');background-size:cover;background-position:center"></div>
           </div>
           <div class="buy__detail">
-            <h3>The Founding Batch · 1 of 400</h3>
-            <p class="buy__inc">Individually numbered grinder · Magnetic stash tin · Members Club for life · First refusal on future shares</p>
+            <h3>The Founders Club · 1 of 400</h3>
+            <p class="buy__inc">Numbered 1 of 400 · Unique Club card · Event guestlist · First access to everything next</p>
             <div class="buy__finish">
               <span>Finish</span>
               <div class="buy__chips">
@@ -243,9 +246,10 @@
                 <button class="qty__btn" type="button" data-qty="1" aria-label="Increase quantity">+</button>
               </div>
             </div>
-            <div class="buy__price"><span class="buy__amt" id="buyAmt">€119</span><span class="buy__was">€149.95</span><span class="buy__vat">founding price · €119 each · incl. VAT</span></div>
+            <div class="buy__price"><span class="buy__amt" id="buyAmt">€119</span><span class="buy__was" id="buyWas">€149.95</span><span class="buy__save" id="buySave">Save €30.95</span></div>
+            <p class="buy__vat">Founders price €119 each, against a €149.95 standard price · incl. VAT</p>
             <button class="btn btn--solid btn--block" id="checkout" data-finish="mirror">Reserve your number</button>
-            <p class="buy__note">A pre-subscription, secured via Stripe. Your number is held the moment you join. First batch ships once the founding run is cast.</p>
+            <p class="buy__note">A pre-subscription, secured via Stripe. Your place is held the moment you join. Your grinder ships once the first run is cast.</p>
           </div>
         </div>
       </div>
@@ -301,6 +305,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>

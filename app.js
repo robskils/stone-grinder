@@ -59,14 +59,20 @@ document.querySelectorAll('[data-buy-finish]').forEach((chip) => {
 
 /* quantity stepper — any amount, 1 and up */
 const UNIT = 119;
+const STD = 149.95;
 const qtyInput = document.getElementById('buyQty');
 const buyAmt = document.getElementById('buyAmt');
+const buyWas = document.getElementById('buyWas');
+const buySave = document.getElementById('buySave');
+function eur(n) { return '€' + n.toLocaleString('en-IE', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }); }
 function clampQty(n) { n = parseInt(n, 10); if (!n || n < 1) n = 1; if (n > 400) n = 400; return n; }
 function syncQty() {
   if (!qtyInput) return;
   const n = clampQty(qtyInput.value);
   qtyInput.value = n;
-  if (buyAmt) buyAmt.textContent = '€' + (UNIT * n).toLocaleString('en-IE');
+  if (buyAmt) buyAmt.textContent = eur(UNIT * n);
+  if (buyWas) buyWas.textContent = eur(+(STD * n).toFixed(2));
+  if (buySave) buySave.textContent = 'Save ' + eur(+((STD - UNIT) * n).toFixed(2));
 }
 if (qtyInput) {
   qtyInput.addEventListener('input', syncQty);

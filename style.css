@@ -248,6 +248,10 @@ em{font-style:normal;color:var(--bone);position:relative}
 .qty__input{width:56px;height:42px;background:none;border:none;border-left:1px solid rgba(10,10,10,.2);border-right:1px solid rgba(10,10,10,.2);color:var(--ink);text-align:center;font-family:var(--font);font-size:1rem;font-weight:500;-moz-appearance:textfield}
 .qty__input::-webkit-outer-spin-button,.qty__input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .qty__input:focus{outline:none}
+/* savings badges */
+.founders__save{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:var(--bone);color:var(--ink);padding:5px 11px;border-radius:100px;align-self:center;white-space:nowrap}
+.buy__save{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--bone);padding:5px 10px;border-radius:100px;align-self:center;white-space:nowrap}
+.buy__vat{margin-top:-8px;margin-bottom:24px}
 @media(max-width:720px){.founders__grid{grid-template-columns:1fr}.founders__cta{flex-direction:column;align-items:flex-start}}
 
 /* ░░ OBJECT ░░ */

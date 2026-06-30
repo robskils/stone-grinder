@@ -1,4 +1,4 @@
-// POST /api/checkout — creates a Stripe Checkout Session for the Founding Batch
+// POST /api/checkout — creates a Stripe Checkout Session for the Founders Club
 // pre-subscription and returns { url }.
 //
 // Required Cloudflare Pages env var:
@@ -31,8 +31,8 @@ export async function onRequestPost({ request, env }) {
     form.set('line_items[0][price_data][currency]', 'eur');
     form.set('line_items[0][price_data][unit_amount]', String(unitAmount));
     form.set('line_items[0][price_data][tax_behavior]', 'inclusive');
-    form.set('line_items[0][price_data][product_data][name]', `STONE — Founding Batch · ${finishLabel}`);
-    form.set('line_items[0][price_data][product_data][description]', 'Individually numbered pre-subscription · STONE Members Club · founding price €119');
+    form.set('line_items[0][price_data][product_data][name]', `STONE — Founders Club · ${finishLabel}`);
+    form.set('line_items[0][price_data][product_data][description]', 'Individually numbered pre-subscription · Founders Club membership · founders price €119');
     form.set('line_items[0][quantity]', String(quantity));
     form.set('line_items[0][adjustable_quantity][enabled]', 'true');
     form.set('line_items[0][adjustable_quantity][minimum]', '1');
@@ -45,7 +45,7 @@ export async function onRequestPost({ request, env }) {
     ['PT', 'ES', 'FR', 'DE', 'IT', 'NL', 'IE', 'BE', 'AT', 'LU', 'GB', 'US', 'CA', 'AU', 'CH', 'SE', 'DK', 'NO', 'FI', 'PL'].forEach((c, i) => {
       form.set(`shipping_address_collection[allowed_countries][${i}]`, c);
     });
-    form.set('metadata[founding_batch]', 'true');
+    form.set('metadata[founders_club]', 'true');
     form.set('metadata[finish]', finish);
 
     const res = await fetch('https://api.stripe.com/v1/checkout/sessions', {

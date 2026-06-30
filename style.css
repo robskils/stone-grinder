@@ -221,6 +221,26 @@ em{font-style:normal;color:var(--bone);position:relative}
 .manifesto__text em{color:var(--bone)}
 .manifesto__text--punch{margin-top:.85em;padding-top:.85em;border-top:1px solid rgba(244,241,236,.1)}
 
+/* ░░ FOUNDERS ░░ */
+.founders{max-width:var(--maxw);margin:0 auto;padding:clamp(70px,10vw,140px) var(--pad)}
+.founders__head{max-width:780px}
+.founders__title{font-size:clamp(2.4rem,6.5vw,5rem);font-weight:500;letter-spacing:-.04em;line-height:.98;margin-top:18px}
+.founders__lede{margin-top:26px;font-size:clamp(1.05rem,1.7vw,1.3rem);line-height:1.6;color:var(--steel);max-width:680px}
+.founders__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:clamp(40px,6vw,64px) 0 clamp(28px,3vw,36px)}
+.founders__perk{background:var(--ink);padding:clamp(28px,3.5vw,44px)}
+.founders__no{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;color:var(--steel)}
+.founders__perk h3{font-size:clamp(1.25rem,2vw,1.55rem);font-weight:500;letter-spacing:-.02em;margin:16px 0 12px}
+.founders__perk p{color:var(--bone-dim);line-height:1.6;font-size:1rem}
+.founders__cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding:clamp(28px,3.5vw,40px);border:1px solid var(--line);border-radius:var(--r);background:var(--ink-2)}
+.founders__price{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.founders__amt{font-size:clamp(2.6rem,6vw,3.6rem);font-weight:600;letter-spacing:-.03em;line-height:1}
+.founders__was{font-size:1.3rem;color:var(--steel);text-decoration:line-through}
+.founders__slots{width:100%;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-top:4px}
+.founders__fine{margin-top:24px;font-size:.85rem;color:var(--steel);max-width:640px;line-height:1.6}
+.hero__founders{margin-top:22px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--bone-dim);max-width:430px;line-height:1.7}
+.buy__was{font-size:1.05rem;color:var(--steel);text-decoration:line-through;margin-left:10px}
+@media(max-width:720px){.founders__grid{grid-template-columns:1fr}.founders__cta{flex-direction:column;align-items:flex-start}}
+
 /* ░░ OBJECT ░░ */
 .section--object .stage--lg{
   max-width:560px;margin:0 auto 30px;width:100%;

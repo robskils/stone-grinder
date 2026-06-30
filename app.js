@@ -17,45 +17,8 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
   io.observe(el);
 });
 
-/* finish switch (showcase) */
-const finishSection = document.getElementById('finish');
-const FINISHES = {
-  mirror: {
-    title: 'Mirror Shine',
-    desc: 'A flawless polished chrome that throws the room back at you. The showpiece. The one you leave on the table.',
-  },
-  stealth: {
-    title: 'Matte Stealth',
-    desc: 'A deep, light-drinking matte that vanishes in the hand. Tactical, quiet, and fingerprint-proof. For the purist.',
-  },
-};
-if (finishSection) {
-  const titleEl = finishSection.querySelector('[data-finish-title]');
-  const descEl = finishSection.querySelector('[data-finish-desc]');
-  const objEl = finishSection.querySelector('[data-finish-object]');
-  finishSection.querySelectorAll('.finish__btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const set = btn.dataset.set;
-      finishSection.dataset.finish = set;
-      finishSection.querySelectorAll('.finish__btn').forEach((b) => b.classList.toggle('is-active', b === btn));
-      titleEl.textContent = FINISHES[set].title;
-      descEl.textContent = FINISHES[set].desc;
-      if (objEl) {
-        objEl.dataset.label = FINISHES[set].title;
-        objEl.style.backgroundImage = "url('assets/img/finish-" + (set === 'stealth' ? 'stealth' : 'mirror') + ".jpg')";
-      }
-    });
-  });
-}
-
-/* buy finish chips */
+/* one finish — Mirror Shine; checkout button reference */
 const checkoutBtn = document.getElementById('checkout');
-document.querySelectorAll('[data-buy-finish]').forEach((chip) => {
-  chip.addEventListener('click', () => {
-    document.querySelectorAll('[data-buy-finish]').forEach((c) => c.classList.toggle('is-active', c === chip));
-    if (checkoutBtn) checkoutBtn.dataset.finish = chip.dataset.buyFinish;
-  });
-});
 
 /* quantity stepper — any amount, 1 and up */
 const UNIT = 119;

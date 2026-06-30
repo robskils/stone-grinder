@@ -28,7 +28,7 @@ const buyAmt = document.getElementById('buyAmt');
 const buyWas = document.getElementById('buyWas');
 const buySave = document.getElementById('buySave');
 function eur(n) { return '€' + n.toLocaleString('en-IE', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }); }
-function clampQty(n) { n = parseInt(n, 10); if (!n || n < 1) n = 1; if (n > 400) n = 400; return n; }
+function clampQty(n) { n = parseInt(n, 10); if (!n || n < 1) n = 1; if (n > 300) n = 300; return n; }
 function syncQty() {
   if (!qtyInput) return;
   const n = clampQty(qtyInput.value);

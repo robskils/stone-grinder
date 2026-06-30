@@ -20,8 +20,8 @@ export async function onRequestPost({ request, env }) {
 
     const unitAmount = parseInt(env.FOUNDER_PRICE_CENTS, 10) || 11900; // €119
     const finishLabel = finish === 'stealth' ? 'Matte Stealth' : 'Mirror Shine';
-    // No artificial cap — buyers can reserve as many as they like (the batch is 400).
-    const quantity = Math.min(Math.max(parseInt(qty, 10) || 1, 1), 400);
+    // No artificial cap — buyers can reserve as many as they like (the batch is 300).
+    const quantity = Math.min(Math.max(parseInt(qty, 10) || 1, 1), 300);
 
     const origin = env.SITE_URL || new URL(request.url).origin;
 
@@ -36,7 +36,7 @@ export async function onRequestPost({ request, env }) {
     form.set('line_items[0][quantity]', String(quantity));
     form.set('line_items[0][adjustable_quantity][enabled]', 'true');
     form.set('line_items[0][adjustable_quantity][minimum]', '1');
-    form.set('line_items[0][adjustable_quantity][maximum]', '400');
+    form.set('line_items[0][adjustable_quantity][maximum]', '300');
     form.set('success_url', `${origin}/?status=reserved&session_id={CHECKOUT_SESSION_ID}`);
     form.set('cancel_url', `${origin}/#founders`);
     form.set('allow_promotion_codes', 'true');

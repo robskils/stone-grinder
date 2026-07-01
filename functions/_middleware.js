@@ -32,8 +32,11 @@ export async function onRequest(context) {
     return gate(true); // wrong password
   }
 
-  // let the gate's own logo through so the landing page can show it
-  if (request.method === 'GET' && url.pathname === '/assets/stone-device-white.svg') return next();
+  // let the gate's own logo (and the email-signature wordmark) through
+  if (request.method === 'GET' && (
+    url.pathname === '/assets/stone-device-white.svg' ||
+    url.pathname === '/assets/stone-wordmark-white.png'
+  )) return next();
 
   // everything else → the gate page
   return gate(false);

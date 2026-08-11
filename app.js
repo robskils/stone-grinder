@@ -21,8 +21,8 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
 const checkoutBtn = document.getElementById('checkout');
 
 /* quantity stepper — any amount, 1 and up */
-const UNIT = 119;
-const STD = 149.95;
+const UNIT = 99;
+const STD = 120;
 const qtyInput = document.getElementById('buyQty');
 const buyAmt = document.getElementById('buyAmt');
 const buyWas = document.getElementById('buyWas');

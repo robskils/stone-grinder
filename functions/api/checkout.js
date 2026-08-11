@@ -4,7 +4,7 @@
 // Required Cloudflare Pages env var:
 //   STRIPE_SECRET_KEY        (secret)  e.g. sk_live_... / sk_test_...
 // Optional:
-//   FOUNDER_PRICE_CENTS      unit price in cents (default 11900 = €119)
+//   FOUNDER_PRICE_CENTS      unit price in cents (default 9900 = €99)
 //   SITE_URL                 canonical site origin for redirect URLs
 //
 // Price is built inline (price_data), so no Stripe Price IDs need to exist —
@@ -18,7 +18,7 @@ export async function onRequestPost({ request, env }) {
       return json({ error: 'payments_not_configured' }, 503);
     }
 
-    const unitAmount = parseInt(env.FOUNDER_PRICE_CENTS, 10) || 11900; // €119
+    const unitAmount = parseInt(env.FOUNDER_PRICE_CENTS, 10) || 9900; // €99
     const finishLabel = finish === 'stealth' ? 'Matte Stealth' : 'Mirror Shine';
     // No artificial cap — buyers can reserve as many as they like (the batch is 300).
     const quantity = Math.min(Math.max(parseInt(qty, 10) || 1, 1), 300);
@@ -32,7 +32,7 @@ export async function onRequestPost({ request, env }) {
     form.set('line_items[0][price_data][unit_amount]', String(unitAmount));
     form.set('line_items[0][price_data][tax_behavior]', 'inclusive');
     form.set('line_items[0][price_data][product_data][name]', `STONE — Founders Club · ${finishLabel}`);
-    form.set('line_items[0][price_data][product_data][description]', 'Individually numbered pre-subscription · Founders Club membership · founders price €119');
+    form.set('line_items[0][price_data][product_data][description]', 'Individually numbered pre-subscription · Founders Club membership · founders price €99');
     form.set('line_items[0][quantity]', String(quantity));
     form.set('line_items[0][adjustable_quantity][enabled]', 'true');
     form.set('line_items[0][adjustable_quantity][minimum]', '1');
